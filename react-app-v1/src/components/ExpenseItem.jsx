@@ -1,12 +1,12 @@
 import React from 'react'
 import './ExpenseItem.css'
-function ExpenseItem() {
+function ExpenseItem({date,title,amount}) {
   return (
     <div className='expense-item '>
-        <div>Jan 12th 2024</div>
+        <div>{date}</div>
         <div className='expense-item__description'>
-            <h2>Food</h2>
-            <div className='expense-item__price'>$ 258</div>
+            <h2>{title}</h2>
+            <div className='expense-item__price'>$ {amount}</div>
         </div>
       
     </div>
