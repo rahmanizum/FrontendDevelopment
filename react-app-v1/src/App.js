@@ -3,10 +3,10 @@ import ExpenseItem  from "./components/ExpenseItem";
 function App() {
   const expense = [
     {
-      id:1,date : "21 st Jan 2024",title:"Salary",amount:350,
+      id:1,date : new Date(),title:"Salary",amount:350,
     },
-    {id:2,date:"25th Feb 2024",title:"Food",amount:100},
-    {id:3,date:"31st March 2024",title:"Books",amount:587}
+    {id:2,date:new Date(),title:"Food",amount:100},
+    {id:3,date:new Date(),title:"Books",amount:587}
 
   ]
   return (
