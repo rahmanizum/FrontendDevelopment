@@ -1,7 +1,7 @@
 import React from "react";
 import './ExpenseDate.css'
 
-function ExpenseDate({date}) {
+const ExpenseDate = ({date}) => {
   const month = date.toLocaleString("default", { month: "long" });
   const year = date.getFullYear();
   const day = date.toLocaleString("default", { day: "2-digit" });
@@ -14,4 +14,4 @@ function ExpenseDate({date}) {
   );
 }
 
-export default ExpenseDate;
+export default ExpenseDate

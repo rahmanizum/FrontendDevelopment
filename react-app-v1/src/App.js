@@ -2,7 +2,7 @@ import React from 'react';
 import Expenses from "./components/Expenses/Expenses";
 import './App.css'
 
-function App() {
+const App = () => {
   const expenses = [
     {id:1,date : new Date(2023,2,23),title:"Salary",amount:350,},
     {id:2,date:new Date(2023,10,17),title:"Food",amount:100},
@@ -17,7 +17,7 @@ function App() {
       <Expenses expenses = {expenses}/>
     </div>
   );
-
 }
 
-export default App;
+export default App
+
