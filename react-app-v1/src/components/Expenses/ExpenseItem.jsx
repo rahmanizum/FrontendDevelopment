@@ -4,9 +4,9 @@ import Card from '../UI/Card'
 import './ExpenseItem.css'
 
 const ExpenseItem = ({date,title,amount}) => {
-  const [data,dataState] = useState(title)
+  const [data,setData] = useState(title)
   const clickHandler = ()=>{
-    dataState("Updated")
+    setData("Updated")
   }
   return (
     <Card className='expense-item '>
