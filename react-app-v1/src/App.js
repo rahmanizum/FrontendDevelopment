@@ -1,5 +1,5 @@
 import React from 'react';
-import Expenses from "./components/Expenses";
+import Expenses from "./components/Expenses/Expenses";
 import './App.css'
 
 function App() {
@@ -9,20 +9,15 @@ function App() {
     {id:3,date:new Date(),title:"Books",amount:587}
 
   ]
-  // return (
-  //   <div>
-  //     <div className="text-center">
-  //     <h1>Lets Manage your Money!</h1>
-  //     </div>
-  //     <Expenses expenses = {expenses}/>
-  //   </div>
-  // );
-  return React.createElement(
-    'div',
-    {},
-    React.createElement('h2',{},'Lets manage your Money!'),
-    React.createElement(Expenses,{expenses:expenses})
+  return (
+    <div>
+      <div className="text-center">
+      <h1>Lets Manage your Money!</h1>
+      </div>
+      <Expenses expenses = {expenses}/>
+    </div>
   );
+
 }
 
 export default App;
