@@ -6,8 +6,8 @@ import './Expenses.css'
 const Expenses = ({expenses}) => {
   return (
     <Card  className='expenses'>
-        {expenses.map((ele)=>{
-            return <ExpenseItem  key={ele.id} {...ele}/>
+        {expenses.map((ele,index)=>{
+            return <ExpenseItem  key={index} {...ele}/>
         })}
     </Card >
   )
