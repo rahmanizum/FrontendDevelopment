@@ -24,6 +24,18 @@
     margin: 0 1rem;
     color: white;
   }
+  .expense-item button {
+    margin-left: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #40005d;
+    border: 1px solid white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background-image: linear-gradient(to right, #ff6f61, #ffc347);
+
+  }
   
   .expense-item__price {
     font-size: 1rem;

@@ -3,11 +3,11 @@ import ExpenseItem from './ExpenseItem'
 import Card from '../UI/Card'
 import './Expenses.css'
 
-const Expenses = ({expenses}) => {
+const Expenses = ({expenses,dataState}) => {
   return (
     <Card  className='expenses'>
         {expenses.map((ele)=>{
-            return <ExpenseItem key={ele.id} {...ele}/>
+            return <ExpenseItem dataState={dataState} key={ele.id} {...ele}/>
         })}
     </Card >
   )

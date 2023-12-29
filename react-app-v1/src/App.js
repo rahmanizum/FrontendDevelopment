@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Expenses from "./components/Expenses/Expenses";
 import './App.css'
 
@@ -9,12 +9,13 @@ const App = () => {
     {id:3,date:new Date(),title:"Books",amount:587}
 
   ]
+  const [data, dataState] = useState(expenses)
   return (
     <div>
       <div className="text-center">
       <h1>Lets Manage your Money!</h1>
       </div>
-      <Expenses expenses = {expenses}/>
+      <Expenses dataState = {dataState} expenses = {data}/>
     </div>
   );
 }
