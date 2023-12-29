@@ -3,11 +3,7 @@ import ExpenseDate from './ExpenseDate'
 import Card from '../UI/Card'
 import './ExpenseItem.css'
 
-const ExpenseItem = ({date,title,amount,dataState}) => {
-  const handleDelete = () => {
-    dataState([])
-  };
-  
+const ExpenseItem = ({date,title,amount}) => {
   return (
     <Card className='expense-item '>
       <ExpenseDate date={date}/>
@@ -15,7 +11,7 @@ const ExpenseItem = ({date,title,amount,dataState}) => {
             <h2>{title}</h2>
             <div className='expense-item__price'>$ {amount}</div>
         </div>
-        <button onClick={handleDelete}>Delete</button>
+        
       
     </Card>
   )
