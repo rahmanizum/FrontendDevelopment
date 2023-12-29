@@ -1,3 +1,4 @@
+import React from 'react';
 import Expenses from "./components/Expenses";
 import './App.css'
 
@@ -8,13 +9,19 @@ function App() {
     {id:3,date:new Date(),title:"Books",amount:587}
 
   ]
-  return (
-    <div>
-      <div className="text-center">
-      <h1>Lets Manage your Money!</h1>
-      </div>
-      <Expenses expenses = {expenses}/>
-    </div>
+  // return (
+  //   <div>
+  //     <div className="text-center">
+  //     <h1>Lets Manage your Money!</h1>
+  //     </div>
+  //     <Expenses expenses = {expenses}/>
+  //   </div>
+  // );
+  return React.createElement(
+    'div',
+    {},
+    React.createElement('h2',{},'Lets manage your Money!'),
+    React.createElement(Expenses,{expenses:expenses})
   );
 }
 
