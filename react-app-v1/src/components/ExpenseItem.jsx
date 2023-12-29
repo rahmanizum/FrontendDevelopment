@@ -1,16 +1,10 @@
 import React from 'react'
 import './ExpenseItem.css'
+import ExpenseDate from './ExpenseDate'
 function ExpenseItem({date,title,amount}) {
-    const month = date.toLocaleString('default', { month: 'long' });
-    const year = date.getFullYear();
-    const day = date.toLocaleString('default',{day:'2-digit'}); 
   return (
     <div className='expense-item '>
-        <div>
-            <div>{month}</div>
-            <div>{year}</div>
-            <div>{day}</div>
-        </div>
+      <ExpenseDate date={date}/>
         <div className='expense-item__description'>
             <h2>{title}</h2>
             <div className='expense-item__price'>$ {amount}</div>
