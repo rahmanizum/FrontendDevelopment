@@ -26,7 +26,6 @@ const ExpenseForm = () => {
     setEnteredAmount("");
     setEneteredTitle("");
     console.log(expense);
-    e.target.reset();
   };
   return (
     <form onSubmit={submitHandler}>
@@ -37,6 +36,7 @@ const ExpenseForm = () => {
             onChange={titleChangeHandler}
             type="text"
             name="title"
+            value={eneteredTitle}
             id=""
             required
           />
@@ -47,6 +47,7 @@ const ExpenseForm = () => {
             onChange={amountChangeHandler}
             type="number"
             name="amount"
+            value={enteredAmount}
             id=""
             min={0}
             required
@@ -58,6 +59,7 @@ const ExpenseForm = () => {
             onChange={dateChangeHandler}
             type="date"
             name="date"
+            value={eneteredDate}
             id=""
             min="2023-01-01"
             max="2024-12-31"
