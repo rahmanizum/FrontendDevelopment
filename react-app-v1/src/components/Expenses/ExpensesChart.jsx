@@ -16,11 +16,10 @@ const ExpensesChart = ({expenses}) => {
         { label: 'Nov', value: 0 },
         { label: 'Dec', value: 0 },
       ];
-      for(let ele of expenses){
+      for(const ele of expenses){
         const expenseMonth = ele.date.getMonth(); 
         chartDataPoints[expenseMonth].value += ele.amount;
       }
-      console.log(chartDataPoints);
   return (
     <Chart dataPoints={ chartDataPoints }/>
   )
