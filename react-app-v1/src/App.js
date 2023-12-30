@@ -12,7 +12,6 @@ const App = () => {
   ]
   const [data,setData] = useState(expenses)
   const addExpenseHandler = (expense)=>{
-    console.log('Adding new expense',expense);
     setData(()=>[...data,expense])
   }
   return (
