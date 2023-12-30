@@ -20,13 +20,11 @@ const Expenses = ({ expenses }) => {
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      {filteredExpenses.length === 0 ? (
-        <p>No Expenses found.</p>
-      ) : (
+      {filteredExpenses.length === 0 && <p>No Expenses found.</p>}
+      {filteredExpenses.length !== 0 &&
         filteredExpenses.map((ele) => {
           return <ExpenseItem key={ele.id} {...ele} />;
-        })
-      )}
+        })}
     </Card>
   );
 };
