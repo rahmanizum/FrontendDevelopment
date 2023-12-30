@@ -59,8 +59,8 @@ const ExpenseForm = ({onSaveExpenseData}) => {
             type="date"
             name="date"
             id=""
-            min="2023-01-01"
-            max="2024-12-31"
+            min="2022-01-01"
+            max="2025-12-31"
             required
           />
         </div>

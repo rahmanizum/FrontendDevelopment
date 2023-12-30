@@ -5,6 +5,7 @@ import './NewExpenses.css'
 const NewExpense = ({onAddExpense}) => {
 const saveExpenseDatahandler = (enteredExpenseData)=>{
   const expenseData = {
+    id:Math.random(),
     ...enteredExpenseData
   }
   onAddExpense(expenseData);
