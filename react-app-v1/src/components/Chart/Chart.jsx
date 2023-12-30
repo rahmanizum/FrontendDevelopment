@@ -3,9 +3,7 @@ import ChartBar from "./ChartBar";
 import "./Chart.css";
 
 const Chart = ({ dataPoints }) => {
-  let dataPointsValues = dataPoints.map((ele)=>{
-    ele.value;
-  })
+  let dataPointsValues = dataPoints.map((ele)=>ele.value)
   let totalMax = Math.max(...dataPointsValues)
   return (
     <div className="chart">
