@@ -5,11 +5,13 @@ import ExpensesFilter from "./ExpensesFilter";
 import "./Expenses.css";
 
 const Expenses = ({ expenses }) => {
-  const [filteredYear, setFilteredYear] = useState(new Date().getFullYear().toString());
+  const [filteredYear, setFilteredYear] = useState(
+    new Date().getFullYear().toString()
+  );
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
-  const filteredExpenses = expenses.filter(expense => {
+  const filteredExpenses = expenses.filter((expense) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
   return (
@@ -18,9 +20,13 @@ const Expenses = ({ expenses }) => {
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      {filteredExpenses.map((ele) => {
-        return <ExpenseItem key={ele.id} {...ele}/>;
-      })}
+      {filteredExpenses.length === 0 ? (
+        <p>No Expenses found.</p>
+      ) : (
+        filteredExpenses.map((ele) => {
+          return <ExpenseItem key={ele.id} {...ele} />;
+        })
+      )}
     </Card>
   );
 };
