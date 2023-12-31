@@ -7,8 +7,11 @@ const CourseInput = ({onAddGoal}) => {
   const [enteredValue, setEnteredValue] = useState('');
   const [isValid,setIsValid] = useState(true)
 
-  const goalInputChangeHandler = event => {
-    setEnteredValue(event.target.value);
+  const goalInputChangeHandler = (e) => {
+    if(e.target.value.trim().length>0){
+      setIsValid(true)
+    }
+    setEnteredValue(e.target.value);
   };
 
   const formSubmitHandler = event => {
