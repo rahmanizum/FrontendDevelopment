@@ -67,7 +67,7 @@ const ExpenseForm = ({onClickCancel,onSaveExpenseData}) => {
         </div>
       </div>
       <div className="">
-        <button onClick={onClickCancel}>Cancel</button>
+        <button type = "button" onClick={onClickCancel}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
