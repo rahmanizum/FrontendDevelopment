@@ -12,14 +12,16 @@ const CourseInput = ({onAddGoal}) => {
 
   const formSubmitHandler = event => {
     event.preventDefault();
+    if(enteredValue.trim().length ===0) return
     onAddGoal(enteredValue);
+    setEnteredValue("")
   };
 
   return (
     <form onSubmit={formSubmitHandler}>
       <div className="form-control">
         <label>Course Goal</label>
-        <input type="text" onChange={goalInputChangeHandler} required />
+        <input type="text" value={enteredValue} onChange={goalInputChangeHandler} />
       </div>
       <Button type="submit">Add Goal</Button>
     </form>
