@@ -9,28 +9,23 @@ const FormControl = styled.div`
     font-weight: bold;
     display: block;
     margin-bottom: 0.5rem;
+    color: ${({inValid})=> inValid ? 'black':'red'}
   }
 
   & input {
     display: block;
     width: 100%;
-    border: 1px solid #ccc;
+    border: 1px solid ${({inValid})=> inValid ? 'black':'red'};;
     font: inherit;
     line-height: 1.5rem;
-    padding: 0 0.25rem;
+    padding: 0 0.25rem; 
+    background-color:${({inValid})=> inValid ? 'transparent':'#fe58ca'};
   }
 
   & input:focus {
     outline: none;
     background: #fad0ec;
     border-color: #8b005d;
-  }
-  &.inValid input {
-    color: red;
-    background-color: #fe58ca;
-  }
-  &.inValid label {
-    color: red;
   }
 `;
 
@@ -57,7 +52,7 @@ const CourseInput = ({ onAddGoal }) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <FormControl className={`${isValid ? "" : "inValid"}`}>
+      <FormControl inValid = {isValid}>
         <label>Course Goal</label>
         <input
           type="text"
