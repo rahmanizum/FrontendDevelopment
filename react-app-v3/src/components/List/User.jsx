@@ -1,9 +1,9 @@
 import React from 'react'
 
-const User = () => {
+const User = ({name,age}) => {
   return (
     <div className='list-group-item'>
-      <h3 className='Lead'> Mufil Rahman a - 27</h3>
+      <h3 className='Lead'> {`${name} - ${age}`}</h3>
     </div>
   )
 }
