@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useState ,useEffect } from "react";
 
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
@@ -52,31 +52,49 @@ const Login = (props) => {
     value: "",
     isValid: null,
   });
+  const{isValid:emailIsValid} = emailState;
+  const{isValid:passwordIsValid} = passwordState;
+
+
+  useEffect(() => {
+    const Identifier = setTimeout(() => {
+      console.log("check validity");
+      setFormIsValid(
+        emailIsValid && passwordIsValid && enteredCollegeName.trim().length> 0
+      );
+    }, 500);
+
+    return () => {
+      console.log("clean up ");
+      clearTimeout(Identifier);
+    };
+  }, [emailIsValid,passwordIsValid,enteredCollegeName]);
+
 
   const emailChangeHandler = (event) => {
     dispatchEmail({ type: "USER_INPUT", val: event.target.value });
-    setFormIsValid(
-      emailState.isValid &&
-        passwordState.trim().length > 6 &&
-        enteredCollegeName.trim().length > 0
-    );
+    // setFormIsValid(
+    //   emailState.isValid &&
+    //     passwordState.trim().length > 6 &&
+    //     enteredCollegeName.trim().length > 0
+    // );
   };
 
   const passwordChangeHandler = (event) => {
     dispatchPassword({ type: "USER_INPUT", val: event.target.value });
-    setFormIsValid(
-      emailState.isValid &&
-        passwordState.isValid &&
-        enteredCollegeName.trim().length > 0
-    );
+    // setFormIsValid(
+    //   emailState.isValid &&
+    //     passwordState.isValid &&
+    //     enteredCollegeName.trim().length > 0
+    // );
   };
   const CollegeNameChangeHandler = (event) => {
     setEnteredCollegeName(event.target.value);
-    setFormIsValid(
-      emailState.isValid &&
-        passwordState.isValid &&
-        event.target.value.trim().length > 0
-    );
+    // setFormIsValid(
+    //   emailState.isValid &&
+    //     passwordState.isValid &&
+    //     event.target.value.trim().length > 0
+    // );
   };
 
   const validateEmailHandler = () => {
