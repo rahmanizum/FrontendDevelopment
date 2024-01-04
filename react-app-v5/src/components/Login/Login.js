@@ -31,7 +31,7 @@ const passwordReducer = (state, action) => {
     };
   } else if (action.type === "INPUT_BLUR") {
     return {
-      value: state.val,
+      value: state.value,
       isValid: state.value.trim().length > 6,
     };
   }
@@ -107,23 +107,18 @@ const Login = () => {
           type="email"
           isValid={emailIsValid}
           value={emailState.value}
-          onChange = {emailChangeHandler}
-          onBlur = {validateEmailHandler}
+          onChange={emailChangeHandler}
+          onBlur={validateEmailHandler}
         />
-        <div
-          className={`${classes.control} ${
-            passwordState.isValid === false ? classes.invalid : ""
-          }`}
-        >
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={passwordState.val}
-            onChange={passwordChangeHandler}
-            onBlur={validatePasswordHandler}
-          />
-        </div>
+        <Input
+          id="password"
+          label="Password"
+          type="password"
+          isValid={passwordIsValid}
+          value={passwordState.value}
+          onChange={passwordChangeHandler}
+          onBlur={validatePasswordHandler}
+        />
         <div
           className={`${classes.control} ${
             collegeNameIsValid === false ? classes.invalid : ""
