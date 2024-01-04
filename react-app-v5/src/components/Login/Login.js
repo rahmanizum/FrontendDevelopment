@@ -1,9 +1,10 @@
-import React, { useReducer, useState ,useEffect ,useContext} from "react";
+import React, { useReducer, useState, useEffect, useContext } from "react";
 
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
 import AuthContext from "../../context/auth-context";
+import Input from "../UI/Input/Input";
 
 const emailReducer = (state, action) => {
   if (action.type === "USER_INPUT") {
@@ -41,7 +42,6 @@ const passwordReducer = (state, action) => {
 };
 
 const Login = () => {
-
   const [enteredCollegeName, setEnteredCollegeName] = useState("");
   const [collegeNameIsValid, setCollegeNameIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
@@ -53,15 +53,14 @@ const Login = () => {
     value: "",
     isValid: null,
   });
-  const{isValid:emailIsValid} = emailState;
-  const{isValid:passwordIsValid} = passwordState;
-
+  const { isValid: emailIsValid } = emailState;
+  const { isValid: passwordIsValid } = passwordState;
 
   useEffect(() => {
     const Identifier = setTimeout(() => {
       console.log("check validity");
       setFormIsValid(
-        emailIsValid && passwordIsValid && enteredCollegeName.trim().length> 0
+        emailIsValid && passwordIsValid && enteredCollegeName.trim().length > 0
       );
     }, 500);
 
@@ -69,17 +68,15 @@ const Login = () => {
       console.log("clean up ");
       clearTimeout(Identifier);
     };
-  }, [emailIsValid,passwordIsValid,enteredCollegeName]);
+  }, [emailIsValid, passwordIsValid, enteredCollegeName]);
 
-  const authCtx = useContext(AuthContext)
+  const authCtx = useContext(AuthContext);
   const emailChangeHandler = (event) => {
     dispatchEmail({ type: "USER_INPUT", val: event.target.value });
-
   };
 
   const passwordChangeHandler = (event) => {
     dispatchPassword({ type: "USER_INPUT", val: event.target.value });
-
   };
   const CollegeNameChangeHandler = (event) => {
     setEnteredCollegeName(event.target.value);
@@ -90,7 +87,7 @@ const Login = () => {
   };
 
   const validatePasswordHandler = () => {
-    dispatchPassword({type:"INPUT_BLUR"})
+    dispatchPassword({ type: "INPUT_BLUR" });
   };
   const validateCollegeNameHandler = () => {
     setCollegeNameIsValid(enteredCollegeName.trim().length > 0);
@@ -101,25 +98,18 @@ const Login = () => {
     authCtx.onLogin(emailState.value, passwordState.val);
   };
 
-
-
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
-        <div
-          className={`${classes.control} ${
-            emailState.isValid === false ? classes.invalid : ""
-          }`}
-        >
-          <label htmlFor="email">E-Mail</label>
-          <input
-            type="email"
-            id="email"
-            value={emailState.value}
-            onChange={emailChangeHandler}
-            onBlur={validateEmailHandler}
-          />
-        </div>
+        <Input
+          id="email"
+          label="E-Mail"
+          type="email"
+          isValid={emailIsValid}
+          value={emailState.value}
+          onChange = {emailChangeHandler}
+          onBlur = {validateEmailHandler}
+        />
         <div
           className={`${classes.control} ${
             passwordState.isValid === false ? classes.invalid : ""
