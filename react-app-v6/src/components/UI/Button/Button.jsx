@@ -1,14 +1,11 @@
-import React from 'react'
-
-const Button = ({type,className,onClick,children}) => {
+import React from "react";
+import { Button as Joybutton } from "@mui/joy";
+const Button = ({ type, className, onClick, children }) => {
   return (
-    <button
-      type={type}
-      onClick={onClick}
-    >
+    <Joybutton variant="solid" type={type} onClick={onClick}>
       {children}
-    </button>
-  )
-}
+    </Joybutton>
+  );
+};
 
-export default Button
+export default Button;

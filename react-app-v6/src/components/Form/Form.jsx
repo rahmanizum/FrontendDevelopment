@@ -3,7 +3,7 @@ import Input from "../UI/Input/Input";
 import Button from "../UI/Button/Button";
 import Label from "../UI/Label/Label";
 import Select from "../UI/Select/Select";
-
+import FormControl from '@mui/joy/FormControl';
 const Form = ({ onSubmit }) => {
   const options = ["Electronics", "Food", "SkinCare"];
   const [inputProductId,setInputProductId]= useState('')
@@ -39,6 +39,7 @@ const Form = ({ onSubmit }) => {
 
   return (
     <form onSubmit={submitHandler}>
+      <FormControl>
       <Label htmlFor="product_ID"> Product Id:</Label>
       <Input
         id="product_id"
@@ -46,6 +47,7 @@ const Form = ({ onSubmit }) => {
         value={inputProductId}
         onChange={productIdChangeHandler}
       />
+      </FormControl>
       <Label htmlFor="Selling_Price"> Selling Price:</Label>
       <Input
         id="selling_price"

@@ -1,10 +1,10 @@
 import React from 'react';
-
+import FormLabel from '@mui/joy/FormLabel';
 const Label = ({ htmlFor, children }) => {
   return (
-    <label htmlFor={htmlFor}>
+    <FormLabel htmlFor={htmlFor}>
       {children}
-    </label>
+    </FormLabel>
   );
 };
 
